@@ -163,7 +163,7 @@ _Note: deployed in Default namespace_
 ***kubectl apply -f deployment.yaml***
 
 
-```***---
+```---
   apiVersion: apps/v1
   kind: Deployment
   metadata:
@@ -184,7 +184,7 @@ _Note: deployed in Default namespace_
         - name: fortune-api
           image: pratiksuman008/fortune-api
           ports:
-          - containerPort: 8080***
+          - containerPort: 8080
 ```
 
    <br />
