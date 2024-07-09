@@ -7,8 +7,8 @@
     AWS CLI installed
     Terraform installed
 
-  <br /> 
-  
+  <br />
+
 ## Objectives:
 
     Set up AWS credentials
@@ -18,8 +18,8 @@
     Deploy the Kubernetes cluster
     Deploy fortune-api on the cluster
 
-  <br /> 
-    <br /> 
+  <br />
+    <br />
 
 
 ## Files and Folders:
@@ -31,19 +31,19 @@ terraform-files:
     - terraform.tf - contains the providers for the module.
 deployment.yaml - provides declarative template for Pods.
 ```
- <br /> 
-  <br /> 
+ <br />
+  <br />
 
-  
+
 ### Steps to Docker build image and push to dockerhub
 
 docker build --platform=linux/arm64  -t pratiksuman008/fortune-api .
 
 docker push pratiksuman008/fortune-api
 
-  <br /> 
-  <br /> 
-  
+  <br />
+  <br />
+
 ### Set up the AWS account
 -- link the account to the AWS CLI.
 
@@ -54,9 +54,9 @@ For this part, i needed :
    2. AWS Secret Access Key.
    3. Default region name.
    4. Default output format.
-```  
-  <br /> 
-  
+```
+  <br />
+
 ***aws configure***
 
 AWS Access Key ID [None]:
@@ -67,7 +67,7 @@ Default region name [None]:
 
 Default output format [None]:
 
-<br /> 
+<br />
 <br />
 
 ### Creating an Amazon Elastic Kubernetes Service Cluster using Terraform and the following AWS resources:
@@ -142,8 +142,8 @@ module "eks" {
   - cluster_security_group_id = "sg-06074dba698c5990f"
   - region                    = "us-east-2"
 
-  <br /> 
-  
+  <br />
+
 ### Configure kubectl with EKS API Server credential
 
 Create or update a kubeconfig file for the cluster. Replace region-code with the AWS Region that the cluster is in and replace [EKS_Cluster_Name] with the name of the cluster.\
@@ -152,10 +152,10 @@ By default, the resulting configuration file is created at the default kubeconfi
 aws eks --region [EKS_Region] update-kubeconfig --name [EKS_Cluster_Name]
 
 
-   <br /> 
-   <br /> 
-   
-### Kubernetes Deployment 
+   <br />
+   <br />
+
+### Kubernetes Deployment
 Deploying the fortune-api image as deployment object in Kubernetes with one pod replica.
 
 _Note: deployed in Default namespace_
@@ -166,28 +166,27 @@ _Note: deployed in Default namespace_
 ```***---
   apiVersion: apps/v1
   kind: Deployment
-  metadata: 
-    name: fortune-api-deployment 
-    labels: 
-      app: fortune-api 
-  spec: 
-    replicas: 1 
-    selector: 
-      matchLabels: 
-        app: fortune-api 
-    template: 
-      metadata: 
-        labels: 
-          app: fortune-api 
-      spec: 
-        containers: 
-        - name: fortune-api 
-          image: pratiksuman008/fortune-api 
-          ports: 
+  metadata:
+    name: fortune-api-deployment
+    labels:
+      app: fortune-api
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: fortune-api
+    template:
+      metadata:
+        labels:
+          app: fortune-api
+      spec:
+        containers:
+        - name: fortune-api
+          image: pratiksuman008/fortune-api
+          ports:
           - containerPort: 8080***
 ```
 ```
 kubectl get pods
 NAME                                     READY   STATUS    RESTARTS   AGE
 fortune-api-deployment-7dbff945b-q4z6w   1/1     Running   0          39s
-

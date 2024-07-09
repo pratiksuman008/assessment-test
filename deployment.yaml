@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fortune-api-deployment
+  labels:
+    app: fortune-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fortune-api
+  template:
+    metadata:
+      labels:
+        app: fortune-api
+    spec:
+      containers:
+      - name: fortune-api
+        image: pratiksuman008/fortune-api
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fortune-api-service
+spec:
+  selector:
+    app.kubernetes.io/name: fortune-api
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
