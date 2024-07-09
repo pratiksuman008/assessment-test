@@ -147,7 +147,7 @@ module "eks" {
 ### Configure kubectl with EKS API Server credential
 
 Create or update a kubeconfig file for the cluster. Replace region-code with the AWS Region that the cluster is in and replace [EKS_Cluster_Name] with the name of the cluster.\
-By default, the resulting configuration file is created at the default kubeconfig path (.kube) in the home directory or merged with an existing config file at that location. It can be specified with another path with the --kubeconfig option.\
+By default, the resulting configuration file is created at the default kubeconfig path (.kube) in the home directory or merged with an existing config file at that location. It can be specified with another path with the --kubeconfig option.
 
 aws eks --region [EKS_Region] update-kubeconfig --name [EKS_Cluster_Name]
 
