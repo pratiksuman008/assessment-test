@@ -2,21 +2,21 @@
 
 ## Prerequisites:
 
-    AWS account
-    Kubectl installed
-    AWS CLI installed
-    Terraform installed
+    1. AWS account
+    2. Kubectl installed
+    3. AWS CLI installed
+    4. Terraform installed
 
   <br />
 
 ## Objectives:
 
-    Set up AWS credentials
-    Install kubectl (if not already done)
-    Configure working directory
-    Edit .tf files to create Kubernetes cluster infrastructure
-    Deploy the Kubernetes cluster
-    Deploy fortune-api on the cluster
+    1. Set up AWS credentials
+    2. Install kubectl (if not already done)
+    3. Configure working directory
+    4. Edit .tf files to create Kubernetes cluster infrastructure
+    5. Deploy the Kubernetes cluster
+    6. Deploy fortune-api on the cluster
 
   <br />
     <br />
