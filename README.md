@@ -190,3 +190,15 @@ _Note: deployed in Default namespace_
 kubectl get pods
 NAME                                     READY   STATUS    RESTARTS   AGE
 fortune-api-deployment-7dbff945b-q4z6w   1/1     Running   0          39s
+```
+```
+kubectl run  -it  test --rm --image ubuntu -- bash
+
+root@test:/# curl 10.0.1.10:8080
+{"Message":"API Running Success"}root@test:/#
+curl 10.0.1.10:8080/healthcheck
+{"health":"true","status_code":"200"}root@test:/#
+curl 10.0.1.10:8080/v1/fortune 
+{"message":"True happiness arises, in the first place, from the enjoyment of oneself, and in the next, from the friendship and conversation of a few select companions.","author":"Joseph Addison"}
+
+```
