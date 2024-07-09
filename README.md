@@ -137,10 +137,10 @@ module "eks" {
 ***terraform apply***
 
 ***Outputs:***
-  - cluster_endpoint          = "https://64206471E08D9371CEF7C514F4C76A82.gr7.us-east-2.eks.amazonaws.com"
-  - cluster_name              = "test-eks-FXSX8qWj"
-  - cluster_security_group_id = "sg-06074dba698c5990f"
-  - region                    = "us-east-2"
+  - cluster_endpoint          = "XXXXXXXXXX"
+  - cluster_name              = "XXXXXXXXXX"
+  - cluster_security_group_id = "XXXXXXXXXX"
+  - region                    = "XXXXXXXXXX"
 
   <br />
 
