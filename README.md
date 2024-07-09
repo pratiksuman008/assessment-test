@@ -186,19 +186,30 @@ _Note: deployed in Default namespace_
           ports:
           - containerPort: 8080***
 ```
-```
-kubectl get pods
-NAME                                     READY   STATUS    RESTARTS   AGE
-fortune-api-deployment-7dbff945b-q4z6w   1/1     Running   0          39s
-```
-```
-kubectl run  -it  test --rm --image ubuntu -- bash
 
-root@test:/# curl 10.0.1.10:8080
+   <br />
+   
+### Steps to Check the pod status
+
+```
+1. kubectl get pods -o wide
+
+NAME                                      READY   STATUS    RESTARTS   AGE   IP          NODE                                       NOMINATED NODE   READINESS GATES
+fortune-api-deployment-7cd45b8fc5-kd5fz   1/1     Running   0          25m   10.0.1.10   ip-10-0-1-113.us-east-2.compute.internal   <none>           <none>
+
+2. get the pod IP
+
+```
+```
+3. kubectl run  -it  checkstatus --rm --image ubuntu -- bash ### a test pod to test the connection and curl
+4. apt update
+5. apt install curl
+
+6. curl 10.0.1.10:8080
 {"Message":"API Running Success"}root@test:/#
-curl 10.0.1.10:8080/healthcheck
+7. curl 10.0.1.10:8080/healthcheck
 {"health":"true","status_code":"200"}root@test:/#
-curl 10.0.1.10:8080/v1/fortune 
+8. curl 10.0.1.10:8080/v1/fortune 
 {"message":"True happiness arises, in the first place, from the enjoyment of oneself, and in the next, from the friendship and conversation of a few select companions.","author":"Joseph Addison"}
 
 ```
