@@ -7,7 +7,8 @@
     AWS CLI installed
     Terraform installed
 
-
+  <br /> 
+  
 ## Objectives:
 
     Set up AWS credentials
@@ -17,7 +18,23 @@
     Deploy the Kubernetes cluster
     Deploy fortune-api on the cluster
 
+  <br /> 
+    <br /> 
 
+
+## Files and Folders:
+```
+terraform-files:
+    - main.tf  - contains the main set of configuration for the module.
+    - variables.tf  - contains the variable definitions for the module.
+    - outputs.tf  - contains the output definitions for the module.
+    - terraform.tf - contains the providers for the module.
+deployment.yaml - provides declarative template for Pods.
+```
+ <br /> 
+  <br /> 
+
+  
 ### Steps to Docker build image and push to dockerhub
 
 docker build --platform=linux/arm64  -t pratiksuman008/fortune-api .
@@ -66,12 +83,9 @@ Default output format [None]:
 8. AWS Security Groups.
 ```
 
-main.tf  - contains the main set of configuration for the module\
-variables.tf  - contains the variable definitions for the module.\
-outputs.tf  - contains the output definitions for the module. \
-terraform.tf - contains the providers for the module\
+
 <br />
-<br />
+
 
 ```
 module "eks" {
@@ -171,5 +185,9 @@ _Note: deployed in Default namespace_
           image: pratiksuman008/fortune-api 
           ports: 
           - containerPort: 8080***
-
+```
+```
+kubectl get pods
+NAME                                     READY   STATUS    RESTARTS   AGE
+fortune-api-deployment-7dbff945b-q4z6w   1/1     Running   0          39s
 
