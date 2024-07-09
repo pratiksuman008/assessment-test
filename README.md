@@ -57,15 +57,7 @@ For this part, i needed :
 ```
   <br />
 
-***aws configure***
 
-AWS Access Key ID [None]:
-
-AWS Secret Access Key [None]:
-
-Default region name [None]:
-
-Default output format [None]:
 
 <br />
 <br />
@@ -188,7 +180,25 @@ _Note: deployed in Default namespace_
 ```
 
    <br />
-   
+
+
+### Steps to connect to the cluster
+```
+1. aws configure
+
+AWS Access Key ID [None]:
+
+AWS Secret Access Key [None]:
+
+Default region name [None]:
+
+Default output format [None]:
+
+
+2. aws eks --region us-east-2  update-kubeconfig --name [EKS_Cluster_Name]
+```
+  
+
 ### Steps to Check the pod status
 
 ```
